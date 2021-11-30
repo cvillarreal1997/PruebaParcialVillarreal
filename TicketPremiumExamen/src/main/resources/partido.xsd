@@ -1,0 +1,70 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ec.edu.espe.arquitectura.ticketpremiun/ws"
+           targetNamespace="http://ec.edu.espe.arquitectura.ticketpremiun/ws" elementFormDefault="qualified">
+
+    <xs:element name="obtenerPartidosDisponiblesRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="FECHA" type="xs:date"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="obtenerPartidosDisponiblesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="partido" type="tns:partido"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+     <xs:element name="obtenerLocalidadesPrecioRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="CODIGO" type="tns:localidad"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+       <xs:element name="obtenerLocalidadesPrecioResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="partido" type="tns:localidad"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+     <xs:element name="decrementarValorDisponibilidadRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="PRECIO" type="tns:localidad"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+       <xs:element name="decrementarValorDisponibilidadResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="DISPONIBILIDAD" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+
+    <xs:complexType name="partido">
+        <xs:sequence>
+            <xs:element name="CODIGO" type="xs:string"/>
+            <xs:element name="CODIGO_LOCALIDAD" type="tns:localidad"/>
+            <xs:element name="EQUIPO_LOCAL" type="xs:string"/>
+            <xs:element name="EQUIPO_VISITA" type="xs:string"/>
+            <xs:element name="FECHA" type="xs:date"/>
+            <xs:element name="LUGAR" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="localidad">
+        <xs:sequence>
+            <xs:element name="CODIGO_LOCALIDAD" type="xs:string"/>
+            <xs:element name="DISPONIBILIDAD" type="xs:string"/>
+            <xs:element name="PRECIO" type="xs:float"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
